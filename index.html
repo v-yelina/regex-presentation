@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/beige.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Regular Expressions</h1>
+          <p style="font-size: 20px; text-align: right">Author: Valiantsina Yelina</p>
+        </section>
+        <section>
+          <h2>What is regular expressions?</h2>
+          <div class="r-hstack">
+            <p style="padding: 0.5em; background: #eee; margin: 0.25em">regexp</p>
+            <p style="padding: 0.75em; background: #eee; margin: 0.25em">regex</p>
+            <p style="padding: 1em; background: #eee; margin: 0.25em">Regular expressions</p>
+          </div>
+          
+        </section>
+        <section>
+          <h2>How to create a Regular Expression in Javascript?</h2>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+			let sea;
+			sea = /sea/;
+			sea = new RegExp("sea");</code></pre>
+        </section>
+        <section>
+          <h2>Methods</h2>
+          <ul style="display: flex; justify-content: space-between">
+            <li>
+              <ul>
+                Own methods
+                <li>test()</li>
+                <li>exec()</li>
+                <li>toString()</li>
+              </ul>
+            </li>
+            <li>
+              String methods
+              <ul>
+                <li>match()</li>
+                <li>matchAll()</li>
+                <li>replace()</li>
+                <li>replaceAll()</li>
+                <li>search()</li>
+                <li>split()</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>RegExp.prototype.test()</h2>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+			const sea = /sea/;
+			sea.test('I want to see the sea!');  // returns true
+			/sea/.test('I want to see the sea!');  // returns true</code></pre>
+        </section>
+        <section>
+          <h2>Global flag</h2>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+			const globalSea = new RegExp('sea*', 'g');
+			globalSea.lastIndex // returns 0
+			globalSea.test('I want to see the sea!');  // returns true
+			globalSea.lastIndex // returns 12
+			globalSea.test('I want to see the sea!');  // returns false
+
+</code></pre>
+        </section>
+        <section>
+          <h2>Writing a regular expression pattern</h2>
+          <div class="r-hstack">
+            <p style="padding: 1em; background: #eee; margin: 0.25em">/abc/</p>
+            <p style="padding: 1em; background: #eee; margin: 0.25em">/ab*c/</p>
+          </div>
+        </section>
+		<section>
+      <h2>Special characters categories</h2>
+      <ul>
+        <li><b>Assertions:</b> <span style="background-color:rgba(245, 174, 39, 0.1);">^, $, x(?=y), x(?!y), (?<=y)x, (?<!y)x, \b, \B</span></li>
+        <li><b>Character classes:</b> <span style="background-color:rgba(245, 174, 39, 0.1);">\d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W</span></li>
+        <li><b>Groups and backreferences:</b> <span style="background-color:rgba(245, 174, 39, 0.1);">(x), (?:x), (?<Name>x), x|y, [xyz]</span></li>
+        <li><b>Quantifiers</b> <span style="background-color:rgba(245, 174, 39, 0.1);">*, +, ?, x{n}, x{n,}, x{n,m}</span></li>
+        <li><b>Unicode property escapes: </b> <span style="background-color:rgba(245, 174, 39, 0.1);">\p{UnicodeProperty}</span></li>
+      </ul>
+    </section>
+	<section>
+		<h2>Examples</h2>
+		<pre data-id="code"><code data-line-numbers class="hljs" data-trim></code>if (/[a-zA-Z]/.test(char)) {</code></pre>
+
+		<pre data-id="code"><code data-line-numbers class="hljs" data-trim></code>return /^[aeiou]$/i.test(this)</code></pre>
+
+		<pre data-id="code"><code data-line-numbers class="hljs" data-trim></code>return /^[0-9a-z_]{4,16}$/.test(username)</code></pre>
+	</section>
+	<section >
+		<div style="display: flex; flex-wrap: nowrap; margin: 0; align-items: center;"><div style="min-width: 40vw;">
+		<h3>1. Email validation:</h3>
+		<pre data-id="code"><code data-line-numbers class="hljs" data-trim></code>^[^@ ]+@[^@ ]+\.[^@ \.]{2,}$</code></pre>
+		<h3>2. Password validation:</h3>
+		<pre data-id="code"><code data-line-numbers class="hljs" data-trim></code>(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])</code></pre>
+		<h3>3. Valid date format:</h3>
+		<pre data-id="code"><code data-line-numbers class="hljs" data-trim></code>\d{4}-\d{2}-\d{2}</code></pre></div>
+		<img src="https://www.creativefabrica.com/wp-content/uploads/2021/11/01/Mystical-Viking-Runes-Symbols-Graphics-19527281-1-1-580x387.jpeg" alt="Runes" style="max-width: 350px; max-height: 350px;"/></div>
+		
+	</section>
+	<section style="text-align:left">
+		<h3 style="margin: 50px 0 0 0;">Resources</h3>
+		<ul><li>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions</li><li>https://www.computerhope.com/unix/regex-quickref.htm</li></ul>
+		<h3 style="margin: 50px 0 0 0;">Regular expression editors</h3>
+		<ul><li>https://regex101.com/</li><li>https://scriptular.com/</li></ul>
+	</section>
+	
+      </div>
+    </div>
+    
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
